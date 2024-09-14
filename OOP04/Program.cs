@@ -68,6 +68,25 @@ namespace OOP04
             //Print10NumbersFromSeries(seriesByFour);
             //// 0  4  8  12  16  20  24  28  32  36
             #endregion
+
+            #region Part 03 Implment Interface (Implicitly Vs Explicitly)
+
+            Car car = new Car();
+            car.Backward();
+            //Car Move Backward On Ground
+
+            Airplane airplane = new Airplane();
+            airplane.Backward();
+            //Airplane Move Backward
+            //airplane.Forward(); // Invalid
+
+            IMovable MovablePlan = new Airplane();
+            MovablePlan.Forward(); // Airplane Move Forward On Ground 
+
+            IFlyable FlyablePlane = new Airplane();
+            FlyablePlane.Forward();
+
+            #endregion
         }
     }
 }
