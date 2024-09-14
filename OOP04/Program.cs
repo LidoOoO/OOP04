@@ -127,7 +127,7 @@ namespace OOP04
             /////That Object Will be The Same Object State [Data] Of Caller [Arr01]
             /////Return To An Object
 
-            
+
             //Console.WriteLine("After Deep Copy");
             //Console.WriteLine($"HC Of Arr01 = {Arr01.GetHashCode()}"); //HC Of Arr01 = 54267293
             //Console.WriteLine($"HC Of Arr02 = {Arr02.GetHashCode()}"); //HC Of Arr02 = 18643596
@@ -142,6 +142,68 @@ namespace OOP04
             //Console.WriteLine($"Arr02[0] = {Arr02[0]}"); // 1
 
             #endregion
+
+            #endregion
+
+            #region Part 05 Deep Copy Vs Shallow Copy [Array Of Reference Type (String)]
+
+            #region Array Of String [Immutable Type]
+
+            string[] Names01 = { "Omar" };
+            string[] Names02 = new string[1]; // {null}
+
+
+            Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 18643596
+
+            #region shallow Copy
+
+            //Names02 = Names01; // Shallow Copy [Reference --- Stack]
+            //                   // Reference [Names01 - Names02] => Same Object
+
+            //Console.WriteLine("After Shallow Copy ");
+
+            //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 54267293
+
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); // Omar 
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); // Omar 
+
+
+            //Names02[0] = "Aya";
+
+            //Console.WriteLine($"Names01[0] = {Names01[0]}"); // Aya 
+            //Console.WriteLine($"Names02[0] = {Names02[0]}"); // Aya 
+
+            #endregion
+
+            #region Deep Copy 
+            //Names02 = (string[]) Names01.Clone();
+            //// Clone => DEEP COPY
+            //// Create New Object With New And Different Identity
+            //// Object Will Have Same Object State [Data] Of Caller Names01
+
+            
+            //Console.WriteLine("After Deep Copy");
+            //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 33574638
+
+
+            //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Omar
+            //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Omar
+
+            //Names02[0] = "Aya";
+
+            //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Omar
+            //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Aya
+
+
+            #endregion
+
+
+            #endregion
+
 
             #endregion
         }
