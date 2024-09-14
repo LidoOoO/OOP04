@@ -4,6 +4,19 @@ namespace OOP04
 {
     internal class Program
     {
+        public static void Print10NumbersFromSeries(ISeries series)
+        {
+            if(series is not null)
+            {
+                for(int i = 0; i < 10; i++)
+                {
+                    Console.Write($" {series.Current} "); // 0
+                    series.GetNext();
+                }
+                series.Reset();
+            }
+        }
+        
         static void Main(string[] args)
         {
             #region Part 01 Interface
@@ -27,13 +40,33 @@ namespace OOP04
             //myType1.MyFun(100);
             //myType1.Print(); //Invalid -> Default Implemented Method
 
-            IMyType myType = new MyType();
+            //IMyType myType = new MyType();
 
-            //Ref From Interface -> Object From Class Implement Interface
-            myType.Id = 30;
-            myType.MyFun(600); // Hello Route : X = 600 , ID = 30
-            myType.Print();    // Hello Defult Implemented Method From Interface
+            ////Ref From Interface -> Object From Class Implement Interface
+            //myType.Id = 30;
+            //myType.MyFun(600); // Hello Route : X = 600 , ID = 30
+            //myType.Print();    // Hello Defult Implemented Method From Interface
 
+            #endregion
+
+            #region Part 02 Interface [Example 01]
+
+            //SeriesByTwo seriesByTwo = new SeriesByTwo();
+
+            //Print10NumbersFromSeries(seriesByTwo);
+            //// 0  2  4  6  8  10  12  14  16  18
+
+            //Console.WriteLine("\n ==================================");
+
+            //SeriesByThree seriesByThree = new SeriesByThree();
+            //Print10NumbersFromSeries(seriesByThree);
+            //// 0  3  6  9  12  15  18  21  24  27
+
+            //Console.WriteLine("\n ==================================");
+
+            //SeriesByFour seriesByFour = new SeriesByFour();
+            //Print10NumbersFromSeries(seriesByFour);
+            //// 0  4  8  12  16  20  24  28  32  36
             #endregion
         }
     }
