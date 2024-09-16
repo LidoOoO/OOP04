@@ -487,7 +487,7 @@ namespace OOP04
 
             //// System.InvalidOperationException
             //// At least one object must implement IComparable.
-            
+
 
             ////foreach (Employee employee in employees)
             ////{
@@ -499,6 +499,36 @@ namespace OOP04
             ////    //Id = 30 , Name = Ali , Salary = $9,000.00
             ////    //Id = 20 , Name = Mona , Salary = $20,000.00
             ////}
+
+
+            #endregion
+
+            #region Part 09 Built-In Interface IComparer
+
+            Employee[] employees = new Employee[4]
+            {
+                new Employee(){Id = 10 , Name = "Aliaa" , Salary = 1000 },
+                new Employee(){Id = 20 , Name = "Mona" , Salary = 20000 },
+                new Employee(){Id = 30 , Name = "Ali" , Salary = 9000 },
+                new Employee(){Id = 40 , Name = "Aya" , Salary = 6000 }
+            };
+
+            Array.Sort(employees , new EmployeeIdComparer());
+
+            // System.InvalidOperationException
+            // At least one object must implement IComparable.
+
+
+            foreach (Employee employee in employees)
+            {
+                Console.WriteLine(employee);
+
+
+                //Id = 10 , Name = Aliaa , Salary = $1,000.00
+                //Id = 40 , Name = Aya , Salary = $6,000.00
+                //Id = 30 , Name = Ali , Salary = $9,000.00
+                //Id = 20 , Name = Mona , Salary = $20,000.00
+            }
 
 
             #endregion
