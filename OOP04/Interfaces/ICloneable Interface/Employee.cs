@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP04.Interfaces.ICloneable_Interface
 {
-    internal class Employee : ICloneable 
+    internal class Employee : ICloneable , IComparable
     {
         public int Id { get; set; }
 
@@ -40,6 +40,21 @@ namespace OOP04.Interfaces.ICloneable_Interface
             return $"Id = {Id} , Name = {Name} , Salary = {Salary:c}";
         }
 
+        public int CompareTo(object? obj)
+        {
+            // +Ve => this.Salary > obj.Salary
+            // -ve => this.Salary < obj.Salary
+            // 0 => this.Salay == obj.Salary
+            Employee PassedEmployee = (Employee) obj; // Unsafe Casting
+            if (this.Salary > PassedEmployee.Salary)
+                return 1;
+            else if (this.Salary < PassedEmployee.Salary)
+                return -1;
+            else
+                return 0;
 
+            
+        }
     }
 }
+ 

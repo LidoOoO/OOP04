@@ -293,7 +293,7 @@ namespace OOP04
             //// Employee02 = Id = 20 , Name = Mona , Salary = $10,000.00
 
             #endregion
-            
+
             #region Shallow Copy And Deep Copy
 
             #region Shallow Copy [Stack]
@@ -459,6 +459,46 @@ namespace OOP04
 
             #endregion
 
+
+
+            #endregion
+
+            #region Part 08 Built-In Interface ICompareable
+
+            //int[] Numbers = { 8, 7, 4, 9, 6, 1, 2, 5, 3, 10 };
+
+
+            //Array.Sort(Numbers);
+
+            //foreach(int i in Numbers)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //Employee[] employees = new Employee[4]
+            //{
+            //    new Employee(){Id = 10 , Name = "Aliaa" , Salary = 1000 },
+            //    new Employee(){Id = 20 , Name = "Mona" , Salary = 20000 },
+            //    new Employee(){Id = 30 , Name = "Ali" , Salary = 9000 },
+            //    new Employee(){Id = 40 , Name = "Aya" , Salary = 6000 }
+            //};
+
+            //Array.Sort(employees);
+
+            //// System.InvalidOperationException
+            //// At least one object must implement IComparable.
+            
+
+            ////foreach (Employee employee in employees)
+            ////{
+            ////    Console.WriteLine(employee);
+
+
+            ////    //Id = 10 , Name = Aliaa , Salary = $1,000.00
+            ////    //Id = 40 , Name = Aya , Salary = $6,000.00
+            ////    //Id = 30 , Name = Ali , Salary = $9,000.00
+            ////    //Id = 20 , Name = Mona , Salary = $20,000.00
+            ////}
 
 
             #endregion
