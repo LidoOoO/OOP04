@@ -1,4 +1,5 @@
 ﻿using OOP04.Interfaces;
+using System.Text;
 
 namespace OOP04
 {
@@ -149,12 +150,12 @@ namespace OOP04
 
             #region Array Of String [Immutable Type]
 
-            string[] Names01 = { "Omar" };
-            string[] Names02 = new string[1]; // {null}
+            //string[] Names01 = { "Omar" };
+            //string[] Names02 = new string[1]; // {null}
 
 
-            Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
-            Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 18643596
+            //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 18643596
 
             #region shallow Copy
 
@@ -184,7 +185,7 @@ namespace OOP04
             //// Create New Object With New And Different Identity
             //// Object Will Have Same Object State [Data] Of Caller Names01
 
-            
+
             //Console.WriteLine("After Deep Copy");
             //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
             //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 33574638
@@ -203,6 +204,66 @@ namespace OOP04
 
 
             #endregion
+
+            #endregion
+
+            #region Part 06 Deep Copy Vs Shallow Copy [Array Of Reference Type (StringBuilder)]
+
+            //StringBuilder[] Names01 = new StringBuilder[1];
+            ////Names01[0].Append("Waleed"); //NullReferenceException
+            //Names01[0] = new StringBuilder("Waleed");
+
+            //StringBuilder[] Names02 = new StringBuilder[1];
+
+            //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 18643596
+
+            #region Shallow Copy [Stack]
+
+            //Names02 = Names01; //Shallwo Copy [Stack]
+
+            //// 2 References [Names01 , Names02] => Same Object
+
+            //Console.WriteLine("Names02 = Names01");
+
+            //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 54267293
+
+            //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Waleed
+            //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Waleed
+
+
+            //Names02[0].Append(" Amr ");
+            //Console.WriteLine("Names02[0].Append(\"Amr\");");
+
+            //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Waleed Amr 
+            //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Waleed Amr  
+            #endregion
+
+            #region Deep Copy [Heap]
+
+            //Names02 = (StringBuilder[]) Names01.Clone(); //Deep Copy 
+            //                                             // 2 Reference [Names01 , Names02] => 2 Different Objects
+
+
+            //Console.WriteLine("Names02 = (StringBuilder[]) Names01.Clone()");
+
+            //Console.WriteLine($"HC Of Names01 = {Names01.GetHashCode()}"); // HC Of Names01 = 54267293
+            //Console.WriteLine($"HC Of Names02 = {Names02.GetHashCode()}"); // HC Of Names02 = 54267293
+
+            //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Waleed
+            //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Waleed
+
+
+            //Names02[0].Append(" Amr ");
+            //Console.WriteLine("Names02[0].Append(\"Amr\");");
+
+            //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Waleed Amr 
+            //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Waleed Amr  
+            
+            #endregion
+
+
 
 
             #endregion
