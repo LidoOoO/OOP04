@@ -1,4 +1,5 @@
 ﻿using OOP04.Interfaces;
+using OOP04.Interfaces.ICloneable_Interface;
 using System.Text;
 
 namespace OOP04
@@ -260,9 +261,203 @@ namespace OOP04
 
             //Console.WriteLine($"Name01[0] = {Names01[0]}"); // Waleed Amr 
             //Console.WriteLine($"Name02[0] = {Names02[0]}"); // Waleed Amr  
-            
+
             #endregion
 
+
+
+
+            #endregion
+
+            #region Part 07 Built-in Interfaces - ICloneable
+
+            #region Shallow Copy And Deep Copy For UserDefiend Datatype
+
+            //Employee employee01 = new Employee() { Id = 10, Name = "Aliaa", Salary = 9000 };
+
+            //Employee employee02 = new Employee() { Id = 20, Name = "Mona", Salary = 10000 };
+
+            ////Employee employee01 = new Employee() { Id = 10, Name = new StringBuilder("Aliaa"), Salary = 9000 };
+
+            ////Employee employee02 = new Employee() { Id = 20, Name = new StringBuilder("Mona"), Salary = 10000 };
+
+            //Console.WriteLine($"HashCode Of Employee01 = {employee01.GetHashCode()} ");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //// HashCode Of Employee01 = 54267293
+            //// Employee01 = Id = 10 , Name = Aliaa , Salary = $9,000.00
+
+
+            //Console.WriteLine($"HashCode Of Employee02 = {employee02.GetHashCode()} ");
+            //Console.WriteLine($"Employee02 = {employee02}");
+            //// HashCode Of Employee02 = 18643596
+            //// Employee02 = Id = 20 , Name = Mona , Salary = $10,000.00
+
+            #endregion
+            
+            #region Shallow Copy And Deep Copy
+
+            #region Shallow Copy [Stack]
+
+            //employee02 = employee01; // Shallow Copy 
+
+            //// 2 References [Employee01 ,Employee02] => Same Objcet
+            //// { Id = 10 , Name = "Aliaa" , Salary = 9000 } ==> Has 2 References
+            //// { Id = 20 , Name = "Mona" , Salary = 10000 } ==> Unreachable Objcet
+
+            //Console.WriteLine("After Shallow Copy ");
+
+            //Console.WriteLine($"HashCode Of Employee01 = {employee01.GetHashCode()} ");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //// HashCode Of Employee01 = 54267293
+            //// Employee01 = Id = 10 , Name = Aliaa , Salary = $9,000.00
+
+
+            //Console.WriteLine($"HashCode Of Employee02 = {employee02.GetHashCode()} ");
+            //Console.WriteLine($"Employee02 = {employee02}");
+
+            //// Employee02 => Id = 20 , Name = 145236951  , Salary = 10000
+            //// 145236951 => Mona
+
+            //employee01.Id = 100;
+            //employee01.Name = "Aya";
+            //employee01.Salary = 20000;
+
+
+            //Console.WriteLine("================= After Changing Employee01 Values ==================");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //Console.WriteLine($"Employee02 = {employee02}");
+
+            #endregion
+
+            #region Shallow Copy - Name Is String Builder
+
+            //employee02 = employee01; // Shallow Copy 
+
+            //// 2 References [Employee01 ,Employee02] => Same Objcet
+            //// { Id = 10 , Name = "Aliaa" , Salary = 9000 } ==> Has 2 References
+            //// { Id = 20 , Name = "Mona" , Salary = 10000 } ==> Unreachable Objcet
+
+            //Console.WriteLine("After Shallow Copy ");
+
+            //Console.WriteLine($"HashCode Of Employee01 = {employee01.GetHashCode()} ");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //// HashCode Of Employee01 = 54267293
+            //// Employee01 = Id = 10 , Name = Aliaa , Salary = $9,000.00
+
+
+            //Console.WriteLine($"HashCode Of Employee02 = {employee02.GetHashCode()} ");
+            //Console.WriteLine($"Employee02 = {employee02}");
+
+            //// Employee02 => Id = 20 , Name = 145236951  , Salary = 20000 
+            //// 145236951 => Aliaa Omar
+
+            //employee01.Id = 100;
+            //employee01.Name.Append(" Omar");    
+            //employee01.Salary = 20000;
+
+
+            //Console.WriteLine("================= After Changing Employee01 Values ==================");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //Console.WriteLine($"Employee02 = {employee02}");
+
+
+
+            #endregion
+
+
+            #region Deep Copy - Name Is String 
+
+            //employee02 = (Employee) employee01.Clone();
+
+            //// Create New Objcet With And Different Identity
+            //// Object Has Same Object State Of Caller
+
+
+            //Console.WriteLine("After Deep Copy ");
+
+
+            //Console.WriteLine($"HashCode Of Employee01 = {employee01.GetHashCode()} ");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //// HashCode Of Employee01 = 54267293
+            //// Employee01 = Id = 10 , Name = Aliaa , Salary = $9,000.00
+
+
+            //Console.WriteLine($"HashCode Of Employee02 = {employee02.GetHashCode()} ");
+            //Console.WriteLine($"Employee02 = {employee02}");
+            //// HashCode Of Employee02 = 33574638
+            //// Employee02 = Id = 20 , Name = Mona , Salary = $10,000.00
+
+            //// Employee02 = Id = 200 , Name = 65479896 , Salary = $30,000.00 
+            //// 12345687 = "Aliaa"
+            //// 65479896 = "Mona" 
+
+
+            //employee02.Id = 200;
+            //employee02.Name = "Mona";
+            //employee02.Salary = 30000;
+
+            //Console.WriteLine("After Changing Employee02 Values");
+            //Console.WriteLine(employee01);
+            //Console.WriteLine(employee02);
+
+            #endregion
+
+            #region Deep Copy - Name Is StringBuilder
+
+            //employee02 = (Employee) employee01.Clone();
+
+            //Console.WriteLine("After Deep Copy ");
+
+            //Console.WriteLine($"HashCode Of Employee01 = {employee01.GetHashCode()} ");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //// HashCode Of Employee01 = 54267293
+            //// Employee01 = Id = 10 , Name = 123456789 , Salary = $9,000.00
+
+
+            //Console.WriteLine($"HashCode Of Employee02 = {employee02.GetHashCode()} ");
+            //Console.WriteLine($"Employee02 = {employee02}");
+            //// HashCode Of Employee02 = 18643596
+            //// Employee02 = Id = 20 , Name = Mona , Salary = $10,000.00
+
+
+
+            //// Employee02 : Id = 500 , Name = 123456789 , Salary = $6,000.00            
+            //// 123456789 = "Aliaa Tarek"
+            //employee02.Id = 500;
+            //employee02.Name.Append(" Tarek");
+            //employee02.Salary = 6000;
+
+
+            //Console.WriteLine("After Changing Employee02 Values");
+            //Console.WriteLine(employee01);
+            //Console.WriteLine(employee02);
+
+            #endregion
+
+
+            //// We Have 2 Ways Deep Copy  User Defiend Datatype
+            //// 1. Clone
+            //// 2. Copy Constructor
+
+
+            //employee02 = new Employee(employee01);
+
+
+            //Console.WriteLine("After Deep Copy");
+
+
+            //Console.WriteLine($"HashCode Of Employee01 = {employee01.GetHashCode()} ");
+            //Console.WriteLine($"Employee01 = {employee01}");
+            //// HashCode Of Employee01 = 54267293
+            //// Employee01 = Id = 10 , Name = Aliaa , Salary = $9,000.00
+
+
+            //Console.WriteLine($"HashCode Of Employee02 = {employee02.GetHashCode()} ");
+            //Console.WriteLine($"Employee02 = {employee02}");
+            //// HashCode Of Employee02 = 18643596
+            //// Employee02 = Id = 20 , Name = Mona , Salary = $10,000.00
+
+            #endregion
 
 
 
