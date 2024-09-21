@@ -1,4 +1,4 @@
-﻿using OOP04.Classes;
+using OOP04.Classes;
 using OOP04.Enum;
 using OOP04.Interfaces;
 
